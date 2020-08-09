@@ -5,6 +5,7 @@ import './styles.css'
 import Input from '../../components/Input';
 import warningIcon from '../../assets/images/icons/warning.svg'
 import Textarea from '../../components/Textarea';
+import Select from '../../components/Select';
 
 function TeacherForm () {
     return (
@@ -25,8 +26,53 @@ function TeacherForm () {
 
                   <fieldset>
                       <legend>Sobre a aula</legend>
-                      <Input name="subject" label="Matéria" />
+                      <Select 
+                        name="subject" 
+                        label="Matéria"
+                        options={[
+                            {value: 'Artes', label: 'Artes'},
+                            {value: 'Biologia', label: 'Biologia'},
+                            {value: 'Ciencias', label: 'Ciencias'},
+                            {value: 'Educacao Fisicao', label: 'Educacao Fisicao'},
+                            {value: 'Fisica', label: 'Fisica'},
+                            {value: 'Geografia', label: 'Geografia'},
+                            {value: 'Historia', label: 'Historia'},
+                            {value: 'Matematica', label: 'Matematica'},
+                            {value: 'Portugues', label: 'Portugues'},
+                            {value: 'Quimica', label: 'Quimica'}
+                        ]}
+                        />
                       <Input name="cost" label="Custo da sua hora por aula" />
+                  </fieldset>
+
+                  <fieldset>
+                      <legend>Horarios Disponiveis
+                        <button type="button">
+                            + Novo Horario
+                        </button>
+                      </legend>
+
+                      <div className="schedule-item">
+                        <Select 
+                            name="subject" 
+                            label="Matéria"
+                            options={[
+                                {value: 'Artes', label: 'Artes'},
+                                {value: 'Biologia', label: 'Biologia'},
+                                {value: 'Ciencias', label: 'Ciencias'},
+                                {value: 'Educacao Fisicao', label: 'Educacao Fisicao'},
+                                {value: 'Fisica', label: 'Fisica'},
+                                {value: 'Geografia', label: 'Geografia'},
+                                {value: 'Historia', label: 'Historia'},
+                                {value: 'Matematica', label: 'Matematica'},
+                                {value: 'Portugues', label: 'Portugues'},
+                                {value: 'Quimica', label: 'Quimica'}
+                            ]}
+                        />
+
+                        <Input name="from" label="Das" type="time"></Input>
+                        <Input name="to" label="Até" type="time"></Input>
+                      </div>
                   </fieldset>
 
                   <footer>
