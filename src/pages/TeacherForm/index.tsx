@@ -1,5 +1,6 @@
 import React, { useState, FormEvent, InputHTMLAttributes } from 'react'
 import PageHeader from '../../components/PageHeader';
+import  { useHistory } from 'react-router-dom'
 
 import './styles.css'
 import Input from '../../components/Input';
@@ -9,6 +10,8 @@ import Select from '../../components/Select';
 import api from '../../services/api';
 
 function TeacherForm() {
+
+    const history = useHistory();
 
     const [scheduleItems, setScheduleItems] = useState([
         { week_day: 0, from: '', to: '' }
@@ -47,6 +50,7 @@ function TeacherForm() {
             schedule : scheduleItems
         }).then( () => {
             alert('Cadastro realizado com Sucesso'!)
+            history.push('/')
         }).catch( () => {
             alert('Erro no cadastro!')
         })
